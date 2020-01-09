@@ -1,0 +1,17 @@
+<%= form_for @state do |f| %>  
+
+  <%= f.collection_select :country_id, Country.order(:country_name),:id,:country_name, include_blank: true %>
+
+  <p>
+    <%= f.label :State_name %><br>
+    <%= f.text_field :state_name %>
+  </p>
+ 
+  
+  <p>
+    <%= f.submit %>
+  </p>
+  
+<% end %>
+
+    <%= link_to 'states back', states_path %> |
