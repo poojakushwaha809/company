@@ -1,0 +1,17 @@
+<%= form_for @node do |f| %>  
+
+  <%= f.collection_select :place_id, Place.order(:place_name),:id,:place_name, include_blank: true %>
+
+  <p>
+    <%= f.label :node_name %><br>
+    <%= f.text_field :node_name %>
+  </p>
+ 
+  
+  <p>
+    <%= f.submit %>
+  </p>
+  
+<% end %>
+
+    <%= link_to 'nodes back', nodes_path %> |

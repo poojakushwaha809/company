@@ -1,0 +1,17 @@
+<%= form_for @place do |f| %>  
+
+  <%= f.collection_select :my_company_id, MyCompany.order(:name),:id,:name, include_blank: true %>
+
+  <p>
+    <%= f.label :place_name %><br>
+    <%= f.text_field :place_name %>
+  </p>
+ 
+  
+  <p>
+    <%= f.submit %>
+  </p>
+  
+<% end %>
+
+    <%= link_to 'places back', places_path %> |

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_09_131844) do
+ActiveRecord::Schema.define(version: 2020_01_16_094519) do
 
   create_table "cities", force: :cascade do |t|
     t.string "city_name"
@@ -37,11 +37,53 @@ ActiveRecord::Schema.define(version: 2020_01_09_131844) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "nodes", force: :cascade do |t|
+    t.string "node_name"
+    t.integer "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "place_name"
+    t.integer "my_company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "role_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "states", force: :cascade do |t|
     t.string "state_name"
     t.integer "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "role_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.float "monthly_charge"
+    t.text "notes"
+    t.string "image"
+    t.boolean "active"
+    t.integer "my_company_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
