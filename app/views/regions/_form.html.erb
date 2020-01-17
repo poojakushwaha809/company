@@ -1,0 +1,16 @@
+<%= form_for @region do |f| %>  
+
+
+  <p>
+    <%= f.label :region_name %><br>
+    <%= f.text_field :region_name %>
+  </p>
+ 
+  
+  <p>
+    <%= f.submit %>
+  </p>
+  
+<% end %>
+
+    <%= link_to 'regions back', regions_path %> |
